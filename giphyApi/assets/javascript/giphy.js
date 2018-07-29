@@ -5,18 +5,81 @@
 //2. create the button for each array
 
 // Function for displaying movie data
-function displayAnimal() {
-  var animal = $(this).attr('data-name');
-  console.log(animal);
+function displayAnimal(searchArray,classToAdd,areaToAdTo) {
+  $(areaToAddTo).empty();
+  for(var i=0; i<searchArray.length;i++){
+    var a = $('<button>');
+  }
+    a.addClass(classToAdd);
+    a.attr('data-type', searchArray)[i];
+    a.text(searchArray[i]);
+    $(areaToAddTo).append(a);
+  }
+
+  $(document).on('click', 'searchButton', function(){
+    var type = $(this).data('type');
+    var queryURL = "https://giphy.com/" + animal + "85IQpi3x8S3M6wtM2iRvheLXHi11f1GM";
+    $.ajax({url:queryURL, method: 'GET'})
+      .done (function (response) {
+        for (var i = 0;i < response.data.length;i++){
+          var searchDiv = $('<div class = search-item>');
+          var rating = response.data[i].rating;
+        } 
+      })
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+/*var animal = $(this).attr('data-name');
   var queryURL = "https://giphy.com/" + animal + "85IQpi3x8S3M6wtM2iRvheLXHi11f1GM";
   
   // Creates AJAX call for the specific movie being 
   $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
     console.log(response);
   })
-}
 
-displayAnimal();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*displayAnimal();
    
     $("button").on("click", function() {
       // Grabbing and storing the data-animal property value from the button
@@ -67,11 +130,33 @@ displayAnimal();
       console.log("submit")
     })
     
-    $("submit").on("click", function() {
+    $("#submit").on("click", function() {
       // Grabbing and storing the data-animal property value from the button capture text into input box
       document.getElementById("gifs-appear-here").value; 
+
+      var newAnimal = $("#animal-input").val().trim();
+
+      // Adding movie from the textbox to our array
+      animals.push(newAnimal);
+
+      // Calling renderButtons which handles the processing of our movie array
+      renderButtons();
+
+      var text =  $("#animal-input").val();
+      console.log(text)
+
+      function myFunction(){
+        var x = document.createElement("INPUT");
+        x.setAttribute("type","button");
+        x.setAttribute("value","Click Me");
+        document.body.appendChild(x);
+      }
+    }
+
+
       //leverage animal array to create buttons
-      (function submitBtn() {
+      
+      /*(function submitBtn() {
           for (var i = 0; i < animal.length; i++) {
              var node = document.createElement("button");
              var t = document.createTextNode(listBrand[i]);
@@ -81,8 +166,9 @@ displayAnimal();
           $("button").on("click", function() {
             // Append the text to <li>
             // Grabbing and storing the data-animal property value from the button
-            var animal = $(this).attr("data-person");
-/*      function renderButtons() 
+            const animal = $(this).attr("data-person");
+          })
+     function renderButtons() 
       {
 
         // Deleting the movies prior to adding new movies
@@ -181,7 +267,7 @@ displayAnimal();
 //4. when user click on buttons gifys appear
 $("#add-btn").on("click",function(event){
 
-()}
+}
 
 //5. when user clicks on gify either stop or run animation
 
@@ -242,5 +328,3 @@ $("#add-btn").on("click",function(event){
 //         }
 //       );
 //   });
-</script>
-*/
